@@ -1,7 +1,7 @@
 import { BellIcon, SearchIcon, UserCircleIcon, UserIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Test from "./test";
+
 
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
