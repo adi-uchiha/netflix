@@ -7,7 +7,9 @@ interface Props{
 }
 
 function Thumbnail( {movie}:Props ) {
-  const [thumbnailHover, setThumbnailHover] = useState(false)
+  const [thumbnailHover, setThumbnailHover] = useState(false) 
+  //to track if the mouse is hovering over any thumbnail 
+  // and then change the height of a div which is not being hovered
 
   const handleMouseOver = ()=> {
     setThumbnailHover(true)
@@ -28,16 +30,17 @@ function Thumbnail( {movie}:Props ) {
           className="-z rounded-sm object-cover md:rounded"
           layout="fill"
         />
-          <div className='h-36 opacity-0 hover:opacity-70
+          <div className='h-36 opacity-0 hover:opacity-70 hs
           duration-300 delay-150 transition ease-in-out hover:-translate-y-0 hover:scale-100' 
           onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-          >
-          
+          onMouseOut={handleMouseOut} 
+          > 
+          {/* This div is a parent div for title div and covers the whole thumbnail and title is at the bottom of it */}
         <div className={`info bg-black h-1 min-w-full absolute bottom-0 overflow-clip
         transition-height ease-in-out duration-500 
-        ${thumbnailHover && "h-20"}
-        `}>
+        ${thumbnailHover && "h-20"} 
+        `}> 
+        {/* title will appear only on mouse hover otherwise height will be h-1 and opacity will be zero */}
           <h1 className='z-50 realative'>{movie.title || movie.name || movie.original_name}</h1>
           </div>
           </div>
