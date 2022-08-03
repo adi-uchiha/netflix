@@ -4,6 +4,7 @@ import { baseUrl } from '../constants/movie'
 import { Movie } from '../typings'
 import { FaPlay } from "react-icons/fa";
 import { InformationCircleIcon } from '@heroicons/react/solid';
+import MoreInfo from './MoreInfo';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -11,6 +12,7 @@ interface Props {
 
 function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null)
+  const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false)
   
 
   useEffect(() => {
@@ -44,8 +46,12 @@ function Banner({ netflixOriginals }: Props) {
           Play
         </button>
 
-        <button className='bannerButton bg-[gray]/70'>
-          More Info banner info
+        <button className='bannerButton bg-[gray]/70' onClick={()=>setShowMoreInfo(true)}>
+          More Info
+          <div className={`${!showMoreInfo && "hidden"}`}>
+
+          <MoreInfo />
+          </div>
           <InformationCircleIcon className='h-5 w-5 md:h-8 md:w-8' />
         </button>
       </div>
