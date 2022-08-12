@@ -1,8 +1,14 @@
 import React from 'react'
+import { Movie } from '../typings'
 
-function MoreInfo() {
+interface Props{
+  movie : Movie | null
+}
+
+function MoreInfo( {movie}: Props ) {
+  console.log(movie)
   return (
-    <div>moreeeee</div>
+    <div><p>heeeeee</p></div>
   )
 }
 

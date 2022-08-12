@@ -14,7 +14,7 @@ function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null)
   const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false)
   
-
+ 
   useEffect(() => {
     setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)])
 
@@ -50,7 +50,7 @@ function Banner({ netflixOriginals }: Props) {
           More Info
           <div className={`${!showMoreInfo && "hidden"}`}>
 
-          <MoreInfo />
+          <MoreInfo movie = {movie}/>
           </div>
           <InformationCircleIcon className='h-5 w-5 md:h-8 md:w-8' />
         </button>
