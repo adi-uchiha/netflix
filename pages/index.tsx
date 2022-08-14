@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import { useRecoilValue } from 'recoil'
+import { modalState } from '../atoms/modalAtoms'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
 import Row from '../components/Row'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
@@ -28,9 +31,10 @@ const Home = ({
   documentaries
 }: props) => {
 
+  const showModal = useRecoilValue(modalState)
 
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]" >
+    <div className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`} >
       <Head>
         <title>Netflix</title>
         <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" />
@@ -50,7 +54,7 @@ const Home = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-
+    {showModal && <Modal />}
     </div>
   )
 }

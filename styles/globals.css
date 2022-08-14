@@ -18,6 +18,10 @@
     }
     .bannerButton{
         @apply flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75
-        md:py-1.5 md:px-5 md:text-xl
+        md:py-1.5 md:px-5 md:text-xl;
+    }
+    .modalButton{
+        @apply flex items-center justify-center rounded-full h-11 w-11 border-2 border-[gray] bg-[#2a2a2a]/60
+        transition hover:bg-white hover:bg-white/10;
     }
 }
