@@ -9,7 +9,7 @@ interface Props{
 }
 
 function MoreInfo( {movie}: Props ) {
-  console.log(movie)
+  
   const overlayStyle = {background : "black", opacity : "0.7"}
   const arrowStyle = { color: 'red', padding: "0px" };
   return (

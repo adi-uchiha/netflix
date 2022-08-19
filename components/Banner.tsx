@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { modalState, movieState } from '../atoms/modalAtoms';
 import MoreInfo from './MoreInfo';
 import Popup from 'reactjs-popup';
+import MovieLogo from '../pages/MovieLogo';
 
 interface Props {
   netflixOriginals: Movie[]
@@ -20,6 +21,7 @@ function Banner({ netflixOriginals }: Props) {
 
   const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false)
 
+  
 
   useEffect(() => {
     setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)])
@@ -39,6 +41,7 @@ function Banner({ netflixOriginals }: Props) {
       <div className="overviewAndButtons relative top-52 space-y-3 ml-2 md:ml-4 md:top-80">
 
         <h1 className='text-2xl lg:text-5xl md:text-4xl font-bold'>
+          <MovieLogo movie={movie} />
           {movie?.title || movie?.name || movie?.original_name}
         </h1>
         <p className='max-w-xs text-xs md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base'>
