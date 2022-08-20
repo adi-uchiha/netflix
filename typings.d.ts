@@ -20,7 +20,7 @@ export interface Movie {
     poster_path: string
     vote_average: number
     vote_count: number
-    images: []
+    images: {backdrops?:[], logos:[{file_path:String}], posters?:[]}
 }
 
 export interface Element {
