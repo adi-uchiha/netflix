@@ -42,7 +42,6 @@ function Banner({ netflixOriginals }: Props) {
 
         <h1 className='text-2xl lg:text-5xl md:text-4xl font-bold'>
           <MovieLogo movie={movie} />
-          {movie?.title || movie?.name || movie?.original_name}
         </h1>
         <p className='max-w-xs text-xs md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base'>
           {movie?.overview}

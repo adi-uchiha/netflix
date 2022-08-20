@@ -10,12 +10,8 @@ interface Props{
 }
 
 function MovieLogo( {movie}: Props ) {
+  
   const [data, setData] = useState(movie)
-
-  
-  
-  
-  
   //To get send logo request to api of the required movie (Client side rendering)
   
   useEffect( () => {
@@ -26,17 +22,23 @@ function MovieLogo( {movie}: Props ) {
       setData(data)
     })
     return
-  
   }, [movie?.id])   
   console.log(data)
+  const imgPath = data?.images?.logos[0]?.file_path
+
+    
 //Get the png path of title log image
-  const imgPath = data?.images?.logos[0].file_path
-  
+    
   return (
+    <div className='w-[40vh]'>
+    <img className={`${!imgPath && "hidden"}`}
+    src={`https://image.tmdb.org/t/p/original/${imgPath}`} alt="" />
+
     <div>
-      <Image src={`https://image.tmdb.org/t/p/original/${imgPath}`}
-      height={"140px"}
-      width={"350px"}/>
+      <h1 className='text-2xl lg:text-5xl md:text-4xl font-bold'>
+      {imgPath ? "": movie?.title || movie?.name || movie?.original_name}
+      </h1>
+    </div>
     </div>
   )
 }
