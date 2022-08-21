@@ -38,11 +38,10 @@ function Banner({ netflixOriginals }: Props) {
         // priority
         />
       </div>
-      <div className="overviewAndButtons relative top-52 space-y-3 ml-2 md:ml-4 md:top-80">
+      <div className="overviewAndButtons relative top-52 space-y-3 ml-2 md:ml-4 md:top-72">
 
-        <h1 className='text-2xl lg:text-5xl md:text-4xl font-bold'>
           <MovieLogo movie={movie} />
-        </h1>
+        
         <p className='max-w-xs text-xs md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base'>
           {movie?.overview}
         </p>

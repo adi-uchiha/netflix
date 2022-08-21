@@ -41,7 +41,7 @@ const Home = ({
       </Head>
 
       <Header />
-      <main className='pl-4 pb-24 space-y-60 lg:space-y-20 md:-space-y-3'>
+      <main className='pl-4 pb-24 space-y-60 lg:space-y-8 md:-space-y-3'>
         <Banner netflixOriginals={netflixOriginals} />
         <section className='space-y-5 md:space-y-10'>
           <Row title="Trending Now" movies={trendingNow} />

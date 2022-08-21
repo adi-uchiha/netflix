@@ -30,15 +30,19 @@ function MovieLogo( {movie}: Props ) {
 //Get the png path of title log image
     
   return (
-    <div className='w-[40vh]'>
+    <div className="parentDiv">
+
+    <div className='w-[50vh]'>
     <img className={`${!imgPath && "hidden"}`}
     src={`https://image.tmdb.org/t/p/original/${imgPath}`} alt="" />
+    </div>
 
     <div>
       <h1 className='text-2xl lg:text-5xl md:text-4xl font-bold'>
-      {imgPath ? "": movie?.title || movie?.name || movie?.original_name}
+      {imgPath ? "" : movie?.title || movie?.name || movie?.original_name}
       </h1>
     </div>
+    
     </div>
   )
 }
