@@ -45,6 +45,7 @@ const Home = ({
         <Banner netflixOriginals={netflixOriginals} />
         <section className='space-y-5 md:space-y-10'>
           <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Anime Row" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
