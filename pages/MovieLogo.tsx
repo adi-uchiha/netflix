@@ -1,8 +1,5 @@
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { baseUrl } from '../constants/movie'
 import { Movie } from '../typings'
-import requests from '../utils/requests'
 
 interface Props{
   movie: Movie | null
@@ -26,9 +23,9 @@ function MovieLogo( {movie}: Props ) {
   console.log(data)
   const imgPath = data?.images?.logos[0]?.file_path
 
-    
+
 //Get the png path of title log image
-    
+
   return (
     <div className="parentDiv">
 
