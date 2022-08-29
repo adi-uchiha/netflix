@@ -10,6 +10,7 @@ import requests from '../utils/requests'
 
 interface props {
   netflixOriginals: Movie[]
+  animation: Movie[]
   trendingNow: Movie[]
   topRated: Movie[]
   actionMovies: Movie[]
@@ -22,6 +23,7 @@ interface props {
 
 const Home = ({ 
   netflixOriginals,
+  animation,
   trendingNow,
   topRated,
   actionMovies,
@@ -32,6 +34,7 @@ const Home = ({
 }: props) => {
 
   const showModal = useRecoilValue(modalState)
+  console.log(animation)
 
   return (
     <div className={`relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`} >
@@ -44,8 +47,8 @@ const Home = ({
       <main className='pl-4 pb-24 space-y-60 lg:space-y-8 md:-space-y-3'>
         <Banner netflixOriginals={netflixOriginals} />
         <section className='space-y-5 md:space-y-10'>
+          <Row title="Animation" movies={animation} />
           <Row title="Trending Now" movies={trendingNow} />
-          <Row title="Animation" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
@@ -64,6 +67,7 @@ export default Home
 export const getServerSideProps = async () => {
   const [
     netflixOriginals,
+    animation,
     trendingNow,
     topRated,
     actionMovies,
@@ -73,6 +77,7 @@ export const getServerSideProps = async () => {
     documentaries,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
+    fetch(requests.fetchAnimation).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
     fetch(requests.fetchTopRated).then((res) => res.json()),
     fetch(requests.fetchActionMovies).then((res) => res.json()),
@@ -85,6 +90,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       netflixOriginals: netflixOriginals.results,
+      animation: animation.results,
       trendingNow: trendingNow.results,
       topRated: topRated.results,
       actionMovies: actionMovies.results,

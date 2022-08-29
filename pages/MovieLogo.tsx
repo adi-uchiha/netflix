@@ -20,7 +20,6 @@ function MovieLogo( {movie}: Props ) {
     })
     return
   }, [movie?.id])   
-  console.log(data)
   const imgPath = data?.images?.logos[0]?.file_path
 
 
